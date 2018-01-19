@@ -11,6 +11,9 @@
         </div>
         <div>
           <p><%= micropost.content %></p>
+          <span id="micropost_<%= micropost.id %>">
+            <%= render 'favorites/like_button', micropost: micropost %>
+          </span>
         </div>
         <div>
           <% if current_user == micropost.user %>
