@@ -37,7 +37,7 @@ class User < ApplicationRecord
   end
   
   def like(micropost)
-    favorites.find_or_create_by(micropost_id: micropost.id)
+    self.favorites.find_or_create_by(micropost_id: micropost.id)
   end
   
   def unlike(micropost)
@@ -49,4 +49,7 @@ class User < ApplicationRecord
     favorites.find_by(micropost_id: micropost.id)
   end
 
+  def feed_favorites
+    Micropost.where(micropost_id: self.like_ids)
+  end
 end

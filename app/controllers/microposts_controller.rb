@@ -20,6 +20,11 @@ class MicropostsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def likes
+    @micropost = Micropost.find(params[:id])
+    @likes = @micropost.likes.order('created_at DESC')
+  end
+  
   private
   
   def micropost_params

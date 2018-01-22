@@ -12,7 +12,7 @@
         <div>
           <p><%= micropost.content %></p>
           <span id="micropost_<%= micropost.id %>">
-            <%= render 'favorites/like_button', micropost: micropost %>
+            <%= render 'favorites/like_button', micropost: micropost, user: user%>
           </span>
         </div>
         <div>
